@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class PopupIle extends React.Component {
 
@@ -15,11 +16,13 @@ class PopupIle extends React.Component {
             .then(response => response)
             .then(dane => {
                 this.setState({
-                    ile:1
+                    ile:1,
                 });
+                this.props.zamknij();
                 console.log(dane.status);
 
             })
+
     }
 
     ilosc = e => {

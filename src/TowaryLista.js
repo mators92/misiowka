@@ -31,10 +31,29 @@ class TowaryLista extends React.Component {
 
          */
 
-        console.log(axios({
+        axios({
             method: 'get',
             url: "https://misiowka.000webhostapp.com/baza.php"
-        }))
+        }).then((response: any) => {
+            if (response && response.status < 300) {
+                console.log('pobrano towary')
+                console.log(response.data)
+
+                this.setState({
+                    pobrano:true,
+                    towary:response.data
+                })
+
+                // ... instrukcje co jeśli pomyślnie się wykona
+            } else {
+                console.log('error1')
+                // ... instrukcje co jeśli error
+            }
+        })
+            .catch((error: any) => {
+                console.log('error2')
+                // ... instrukcje co jeśli error
+            })
     }
 
     wybrany = towar =>{
