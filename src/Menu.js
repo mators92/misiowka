@@ -1,12 +1,24 @@
 import React from 'react';
+import {withRouter} from "react-router";
+import LoginService from './LoginService';
 
-const Menu = () => {
-    return (
-        <div id="menu">
-            <h4>naglowek</h4>
-            <button>Wyloguj</button>
-        </div>
-    );
+class Menu extends React.Component {
+
+    wyloguj = () => {
+        LoginService.logout();
+        this.props.history.push('/');
+    }
+
+    render(){
+        return (
+            <div id="menu">
+                <a className="naglowek">Witaj {localStorage.getItem('imie')}</a>
+                <a className="buttonwyloguj" onClick={this.wyloguj}>Wyloguj</a>
+            </div>
+        );
+    }
+
 };
 
-export default Menu;
+
+export default withRouter(props => <Menu {...props}/>);

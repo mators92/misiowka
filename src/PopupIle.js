@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import LoginService from './LoginService';
+import config from "./config";
 
 class PopupIle extends React.Component {
 
@@ -10,7 +12,7 @@ class PopupIle extends React.Component {
     dodaj=()=>{
         console.log('dodaj');
 
-        const url='https://misiowka.000webhostapp.com/dodajdokoszyki.php/?nr=888888888&id='+this.props.wybranytowar.ID+'&ile='+this.state.ile;
+        const url= config.HOST_API+"/insert.php/?nr="+LoginService.getCurrentUser()+"&id="+this.props.wybranytowar.ID+"&ile="+this.state.ile;
 
         fetch(url)
             .then(response => response)

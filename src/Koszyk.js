@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-
+import Razem from './Razem';
+import LoginService from './LoginService';
+import config from "./config";
 
 class Koszyk extends React.Component {
     constructor(props) {
@@ -32,11 +34,12 @@ class Koszyk extends React.Component {
 
         axios({
             method: 'get',
-            url: "https://misiowka.000webhostapp.com/koszyk.php"
+            url: config.HOST_API+"/koszyki.php/?nr="+LoginService.getCurrentUser()
         }).then((response: any) => {
             if (response && response.status < 300) {
                 console.log('pobrano koszyk')
                 console.log(response.data)
+                console.log(response.data.length)
 
                 this.setState({
                     pobrano:true,
@@ -45,22 +48,19 @@ class Koszyk extends React.Component {
 
                 // ... instrukcje co jeśli pomyślnie się wykona
             } else {
-                console.log('error1')
+                console.log('error1 koszyk')
                 // ... instrukcje co jeśli error
             }
         })
             .catch((error: any) => {
-                console.log('error2')
+                console.log('error2 koszyk')
                 // ... instrukcje co jeśli error
             })
     }
 
     wybrany = towar =>{
-        console.log(towar.ID);
+        console.log(towar);
         this.setState({wybrano:true, wybranytowar: towar})
-    }
-    zamknijpopup =()=>{
-        this.setState({wybrano:false})
     }
 
 
@@ -68,18 +68,21 @@ class Koszyk extends React.Component {
         const { pobrano, towary, wybrano, wybranytowar} = this.state;
         const listatowarow=towary.map((element)=>(
             <li onClick={() => this.wybrany(element)}>
-                <div><h2>{element.NAZWA}</h2> <h5>{element.ILE} szt</h5></div>
-                <h5>{element.CENA} zł</h5>
+                <div className="element"><div className="naz"><h2>{element.NAZWA}</h2></div> <div className="censzt"><h5>{element.ILE} szt</h5> <h5>{element.CENA} zł</h5></div></div>
                 <hr/>
             </li>
         ));
 
         return (
             <div id='kosz'>
+                <div className="kosznag"> <h3>Koszyk</h3> <Razem/></div>
                 {(pobrano)?
                     <div>
-                        <h3>Koszyk</h3>
-                        <ul>{listatowarow}</ul>
+                        {(towary.length===0 )?
+                            <h4>Twój koszyk jest pusty...</h4>
+                            :
+                            <ul>{listatowarow}</ul>
+                        }
                     </div>
                     :
                     <h4>Ładowanie...</h4>

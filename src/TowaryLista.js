@@ -1,6 +1,7 @@
 import React from 'react';
 import PopupIle from './PopupIle';
 import axios from 'axios';
+import config from "./config";
 
 class TowaryLista extends React.Component {
 
@@ -33,7 +34,7 @@ class TowaryLista extends React.Component {
 
         axios({
             method: 'get',
-            url: "https://misiowka.000webhostapp.com/baza.php"
+            url: config.HOST_API+"/towary.php"
         }).then((response: any) => {
             if (response && response.status < 300) {
                 console.log('pobrano towary')
@@ -46,12 +47,12 @@ class TowaryLista extends React.Component {
 
                 // ... instrukcje co jeśli pomyślnie się wykona
             } else {
-                console.log('error1')
+                console.log('error1 towary')
                 // ... instrukcje co jeśli error
             }
         })
             .catch((error: any) => {
-                console.log('error2')
+                console.log('error2 towary')
                 // ... instrukcje co jeśli error
             })
     }

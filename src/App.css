@@ -2,26 +2,54 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  background-color: #f0ece3;
+  /*background-color: #f0ece3;*/
 }
 
-
-.App-header {
-  display: block;
-
-  min-height:100%; padding:0; margin:0; position:relative;
-
-  background-color: #282c34;
-  min-height: 100vh;
-  font-size: calc(4px + 2vmin);
-  color: white;
-  /*margin-left: auto;
-  margin-right: auto;
-
-
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;*/
+.login-page {
+  width: 360px;
+  padding: 5% 0 0;
+  margin: auto;
+}
+.login-page h1{
+  font-family: "Comic Sans MS";
+}
+.form {
+  position: relative;
+  z-index: 1;
+  background: #c7b198;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #43A047;
 }
 
 .modal {
@@ -106,43 +134,88 @@
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #596e79; /*#333;*/
+  background-color: #c7b198; /*#333;*/
   text-align: center;
+  border-bottom: solid #642d2d;
+}
+.naglowek{
+
+}
+.buttonwyloguj {
+  border: none;
+  float: right;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px 1px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: #c7b198;
+  color: black;
 }
 
+.buttonwyloguj:hover {
+  background-color: #c7b198;
+  color: white;
+}
+
+
+.kosznag {
+  border-bottom: solid #642d2d;
+  background-color: #c7b198;
+}
+.kosznag h3 {
+  margin: 0;
+}
+.element {
+  padding: 10px;
+}
 #kosz {
   float:left;
   width: 73%;
   margin:25px 0 25px 15px;
-  background-color: #c7b198;
+  background-color: #f0ece3;
   border: solid #642d2d;
 }
 #kosz ul {
   list-style-type: none;
-  margin: 5px;
+  margin: 0;
   padding: 0;
 }
 #kosz li {
   padding: 0;
-  margin: 5px;
+  margin: 0;
 }
 #kosz li:hover {
-  background-color: #cdb79f;
+  background-color: #c7b198;
 }
 #kosz h5 {
   padding: 2px;
   margin: 0;
 }
-#kosz h3 {
-  border-bottom: solid #642d2d;
-  margin: 0;
-}
 #kosz h2 {
   margin: 0;
+  padding: 2px;
+  text-align: center;
+  width: auto;
+  overflow: auto;
+}
+.naz{
+  margin: 0;
   padding: 0;
+  display: inline-block;
+}
+.censzt {
+  display: inline-block;
+  text-align: right;
+  float: right;
+  margin-right: 5px;
+  min-width: 70px;
 }
 #kosz hr {
-  margin: 0;
+  margin: 2px 0 0 0;
   padding: 0;
 }
 
